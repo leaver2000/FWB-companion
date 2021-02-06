@@ -3,21 +3,29 @@ body {
     margin: 10px;
 }
 .container-fluid {
-    border: 1px solid rgba(53, 47, 47, 0.151);
-    justify-content: start;
+    padding: 0px;
+    margin: 0px;
 }
-
 .container {
     border: 1px solid rgba(53, 47, 47, 0.459);
     justify-content: start;
 }
 
 .row {
-    border: 2px solid rgba(53, 47, 47, 0.151);
+    border: 1px solid rgba(53, 47, 47, 0.151);
     background: rgba(99, 98, 109, 0.164);
     margin: 1px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
+    box-shadow: 1px solid blue;
+}
+.row-900 {
+    width: 900px;
+    border: 1px solid rgba(53, 47, 47, 0.151);
+    background: rgba(99, 98, 109, 0.164);
+    padding: 3px;
+    justify-content: right;
+    box-shadow: 1px solid blue;
 }
 .nav-item {
     border: 1px solid rgba(53, 47, 47, 0.151);
@@ -80,12 +88,14 @@ textarea {
     padding-top: 0px;
     vertical-align: top;
 }
-.wrapper {
-    display: flex;
-    width: 100%;
-}
-
 .navbar-text {
     margin-right: 20px;
     margin-left: 20px;
+}
+.FWBC {
+    justify-content: center;
+}
+.content {
+    padding-left: 0px;
+    padding-right: 0px;
 }

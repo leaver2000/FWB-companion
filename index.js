@@ -386,7 +386,6 @@ $(document).ready(function () {
         });
         //DIM_RUN:
         $(".SelectRun").each(function () {
-            var event = new Date();
             // console.log(event);
             var deconRUN = new Date().addHours(-3);
             // console.log(oneHR);
