@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>FWB Companion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="common/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="common/bootstrap/bootstrap-grid.css" rel="stylesheet" />
+        <link href="common/bootstrap/font-awesome.css" rel="stylesheet" />
+        <link href="common/bootstrap/scss/custom.css" rel="stylesheet" />
+        <link href="select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="common/docs/logo1.png" />
+        <link href="common/jquery/jquery-ui.min.css" rel="stylesheet" />
+        <link href="common/jquery/jquery.timepicker.min.css" rel="stylesheet" />
+        <script src="common/jquery/jquery.min.js"></script>
+        <script src="common/jquery/jquery-ui.min.js"></script>
+        <script src="common/jquery/jquery.timepicker.min.js"></script>
+        <script src="select2/dist/js/select2.min.js"></script>
+        <script src="common/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"> <img src="common/docs/logo.png" alt="" width="70" height="70" class="d-inline-block align-top" /></a>
+                <!---->
+
+                <div class="nav justify-content-center">
+                    <span class="navbar-text">
+                        <h3 id="Ztime" class="nav-title text-center x-3"></h3>
+                    </span>
+                    <span class="navbar-text">
+                        <h3 id="Ltime" class="nav-title text-center x-3"></h3>
+                    </span>
+                </div>
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> JET </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         
+                            <li>
+                                <a class="dropdown-item" href="#">15 OWS Jet</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">17 OWS Jet</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">21 OWS Jet</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">25 OWS Jet</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">26 OWS Jet</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Links </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">inactive</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">inactive</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">inactive</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">inactive</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">inactive</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">About</a>
+                        </li>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Flight Weather Brief Companion</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        The FWB Companion attempts to consolidate the most frequently utilized WX resources into a single page. The forecaster must first paste the ICAO, Date, and Time formats provided by JET into the texts areas on the left and click sort. The data is then parsed into an input field in the lower portion of the page. The parameters can then be pulled from to
+                                        retrieve mission specific WX products with just a few clicks.
+                                    </br>
+                                        
+                                    <div class="modal-footer">
+                                        NOTE!! The page is still in a Alpha phase, please report any bugs/suggestions to TSgt Jason Leaver… Jason.Leaver@us.af.mil
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!--set max width of the FAPGS -->
+                <div class="container" style="width: 920px">
+                    <div class="row" style="width: 910pk">
+                        <h4>Flight Weather Briefing Companion</h4>
+                        <!--input type="text" placeholder="paste jet mission ID" /><button class="btn btn-primary btn-sm" type="button">JET MID</button-->
+                    </div>
+                    <div class="row" style="width: 910pk">
+                        <p>paste the ICAO col from the 175-1 briefing shell and click the "sort ICAO col" button</p>
+                    </div>
+                    <div class="row" style="width: 910pk">
+                        <div class="nav">
+                            <textarea rows="2" cols="80" id="ICAOarray" placeholder="Paste ICAO Array.">krap, kgus,</textarea>
+                            <div class="col">
+                                <button class="btn btn-primary btn-sm" type="button" id="icaoSORT">icaoSORT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 910pk">
+                       
+                        <strong>Note: each take off or landing time should be followed by a ","</strong>
+                        <strong>Note: times must be input in chronological for the crossection feature to work.</strong>
+                    </div>
+                    <div class="row" style="width: 910pk">
+                        <div class="nav">
+                            <textarea rows="2" cols="80" id="TIMEarray" placeholder="paste TIME Array">02/03/2021 12:00, 02/03/2021 13:00, </textarea>
+                            <div class="col">
+                                <!--02/04/2021 02:00, 02/04/2021 14:20, 02/04/2021 15:00-->
+                                <button class="btn btn-primary btn-sm" type="button" id="timeSORT">timeSORT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 910pk">
+                        <p>navigate the tabs below and select the desired products to be retreived</p>
+                    </div>
+                    <!-- product selection tab -->
+                    <div class="row" style="width: 910pk">
+                        <ul class="nav nav-tabs mb-0" id="tabs-home" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#tabs-XSEC">crosssection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-MEAT">Meteograms</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-OBS">obs & tafs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-MOD">model</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-MOA">MOA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-ART">ART</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="tabs-tabContent">
+                            <!--crosssection-->
+                            <div class="tab-pane fade show active" id="tabs-XSEC">
+                                AFWEBS Cross-section | Model:
+
+                                <select id="selMOD" style="width: 85px">
+                                    <option>GALWEM</option>
+                                </select>
+                                | Runtime:
+                                <select class="SelectRun" style="width: 85px">
+                                    <option id="00UTC" value="0">00:00Z</option>
+                                    <option id="06UTC" value="1">06:00Z</option>
+                                    <option id="12UTC" value="2">12:00Z</option>
+                                    <option id="18UTC" value="3">18:00Z</option>
+                                </select>
+                                <button id="getXSEC" class="btn btn-primary btn-sm" type="button">Get X-section</button>
+                                <div id="foobar" class="foobar"></div>
+                            </div>
+                            <!--meteograms-->
+                            <div class="tab-pane fade show fade" id="tabs-MEAT">
+                                AFWEBS Meteogram | Model:
+                                <select id="selMOD" style="width: 85px">
+                                    <option>GALWEM</option>
+                                    <option>GFS</option>
+                                </select>
+                                Runtime:
+                                <select class="SelectRun" style="width: 85px">
+                                    <option id="00UTC" value="0">00:00Z</option>
+                                    <option id="06UTC" value="1">06:00Z</option>
+                                    <option id="12UTC" value="2">12:00Z</option>
+                                    <option id="18UTC" value="3">18:00Z</option>
+                                </select>
+                                <button id="getMEAT" class="btn btn-primary btn-sm" type="button">Get meteogram</button>
+                            </div>
+                            <!--obs and tafs-->
+                            <div class="tab-pane fade" id="tabs-OBS">
+                                <input type="checkbox" class="checkSingle" value="2" id="checkOBS" />
+                                <label class="form-check-label" for="inlineCheckbox1">Obs</label>
+                                <input type="checkbox" class="checkSingle" value="2" id="checkTAFS" />
+                                <label class="form-check-label" for="inlineCheckbox1">TAFs</label>
+                                <input type="checkbox" name="checkAll" class="checkSingle" id="checkedAll" />
+                                <label class="form-check-label" for="inlineCheckbox1">checkall</label>
+                            </div>
+                            <!--model data-->
+                            <div class="tab-pane fade" id="tabs-MOD">
+                                <input type="checkbox" class="checkSingle" value="2" id="checkMGRAM" />
+                                <label class="form-check-label" for="inlineCheckbox1">meteogram</label>
+                                <input type="checkbox" class="checkSingle" value="2" id="checkSKEW" />
+                                <label class="form-check-label" for="inlineCheckbox1">Skew-T</label>
+                                <input type="checkbox" class="checkSingle" value="2" id="checkMOS" />
+                                <label class="form-check-label" for="inlineCheckbox1">MOS data</label>
+                                <input class="form-check-input" type="checkbox" value="ssss" id="checkAIRDROP" />
+                                <label class="form-check-label" for="inlineCheckbox1">precision airdrop</label>
+                                <input class="form-check-input" type="checkbox" value="ssss" id="checkSKEWT" />
+                                <label class="form-check-label" for="inlineCheckbox1">skew-t</label>
+                                <input type="checkbox" name="checkAll" class="checkSingle" id="checkedAll" />
+                                <label class="form-check-label" for="inlineCheckbox1">checkall</label>
+                            </div>
+                            <!--div class="tab-pane inactive" id="tabs-blank1">TAFS</div><div class="tab-pane inactive" id="tabs-blank2">inactive</div-->
+                            <!--moa drop down-->
+                            <div class="tab-pane fade" id="tabs-MOA">
+                                <select id="selMOA" style="width: 200px">
+                                    <option value="41 24.2028, 2 10.4418">--Select MOA--</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA 123</option>
+                                    <option value=" 41 24.2028, 2 10.4418">MOA condor</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA pm flying</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA badger</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA 1520</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA 999</option>
+                                    <option value="41 24.2028, 2 10.4418">MOA 555</option>
+                                </select>
+                                <button class="btn btn-primary btn-sm" type="button" id="moa_read">get MOA</button>
+                                <p>
+                                    enter time:
+                                    <input class="datepicker" />
+                                    <input class="timepicker" size="4" maxlength="4" />
+                                </p>
+                                <p>
+                                    exit time:
+                                    <input class="datepicker" />
+                                    <input class="timepicker" size="4" maxlength="4" />
+                                </p>
+                                <br />
+                                <div id="moa_OUT"></div>
+                            </div>
+                            <!--art drop down-->
+                            <div class="tab-pane fade" id="tabs-ART">
+                                <select id="selART" style="width: 200px">
+                                    <option value="41 24.2028, 2 10.4418">--Select ART--</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 123</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 123</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 123</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 123</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 1520</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 999</option>
+                                    <option value="41 24.2028, 2 10.4418">AR Track 555</option>
+                                </select>
+                                <button class="btn btn-primary btn-sm" type="button" id="art_read">get AR Track</button>
+                                <button class="btn btn-primary btn-sm" type="button" id="art_read">clear ART</button>
+                                <br />
+                                <div class="row">
+                                    <div>
+                                        <input class="datepicker" placeholder="--enter date--" />
+                                    </div>
+                                    <div>
+                                        <input class="timepicker" size="4" maxlength="4" placeholder="--enter time--" />
+                                    </div>
+                                    <div>
+                                        <input class="datepicker" placeholder="--exit date--" />
+                                    </div>
+                                    <div>
+                                        <input class="timepicker" size="4" maxlength="4" placeholder="--exit time--" />
+                                    </div>
+                                    <br />
+                                    <div id="art_OUT"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product selection tab bar -->
+                    <div class="row">
+                        <p>The time and date entrys were developed not to require any specific format. "/"'s, ":"'s'and the "Z" are automaticly insterted when you are done populating the field.</p>
+                        <div id="foo" class="foobar" style="display: none"></div>
+                        <div id="bar" class="foobar" style="display: none"></div>
+                        <!--style="display: none"-->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td class="row-index">
+                                        <button id="addBtn" class=".addBtn btn-primary btn-sm" type="button">Add Row</button>
+                                        <button id="today" class=".today btn-primary btn-sm" type="button">Set Today</button>
+                                        <button id="tomorrow" class=".tomorrow btn-primary btn-sm" type="button">Set Tomorrow</button>
+                                        <button id="clear" class="btn btn-danger btn-sm" type="button">Clear all</button>
+                                        Airdrop Wind Profile: ||
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                        Low ||
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                                        Upper
+                                    </td>
+                                </tr>
+                                <tbody id="tbody">
+                                    <tr class="headrow" id="R0">
+                                        <td class="row-index">
+                                            <input class="icao" id="icao0" size="4" type="text" placeholder="ICAO" autocomplete="off" />
+                                            <input class="datepicker" id="date0" size="12" autocomplete="off" />
+                                            <div class="tacocat">
+                                                <button class="btn up" id="dateup"></button>
+                                                <button class="btn down" id="datedown"></button>
+                                            </div>
+                                            <input class="timepicker" id="time0" maxlength="4" size="4" autocomplete="off" />
+                                            <div class="tacocat">
+                                                <button class="btn up" id="timeup"></button>
+                                                <button class="btn down" id="timedown"></button>
+                                            </div>
+                                            <button class="getWX btn-primary btn-sm">getWX</button>
+                                            <button class="getMEAT btn-primary btn-sm">Meteogram</button>
+                                            <button class="getPADWP btn-primary btn-sm">Air Drop</button>
+                                            <!--input placeholder="FL" maxlength="3" size="4" /><button class="getFLW btn-primary btn-sm">FL WNDS</button-->
+                                            <button class="openW btn-primary btn-sm">Open Windows</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="tabs" style="width: 920px">
+                    <div class="row" style="width: 910pk">
+                        <div class="head">
+                            <p><strong>Still in Development:</strong> Currently <button class="btn-primary btn-sm">getWX</button> will generate new tabs and populate the fields below with scrambled MOS data. Eventually this section will display more relevant and useful weather data</p>
+                            <button id="clearTABS" class="btn btn-danger btn-sm" type="button">cleartabs</button>
+                        </div>
+                        <ul class="nav nav-tabs mb-0" id="tabs-row" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" id="AtabHOME" href="#tabs-0">HOME</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="tabs-content1">
+                            <div class="tab-pane fade show active" id="tabs-0">
+                                <h5>
+                                    <strong>Home TAB</strong>
+                                </h5>
+                                <p>
+                                    <strong>Data Entry:</strong> Paste the ICAO array from
+                                    <button class="btn-primary btn-sm">JET</button>
+                                    <strong> Mission Management</strong> into the upper text area on the left and click <button class="btn-primary btn-sm">icaoSort</button> next to the text field. Next paste the take off and destination times into the second text field on the left then click
+
+                                    <button class="btn-primary btn-sm">timeSORT</button> a table has now been dynamicly generated in the lower section of the briefing tool ready for product retrevial
+                                </p>
+                                <p><strong>Product Selection:</strong> Please use the FWB Getter to begin retreiving your dynamic TABS. input data either into the array fields at the top to sort ICAO's and time and date information from JET to distribute the information throughout the input form.></p>
+                                <p><strong>Tab Naviigation:</strong> once you have input ICAO, date, and time information in the fields to the left you may navigate the tabs above for data retreival</p>
+                                <p><strong>Additional Features:</strong> be sure to check our the tabs within FWB getter. The tabs within the getter allow the user to navigate to various Weather products</p>
+                                <p>
+                                    <button class="btn-primary btn-sm">Get X-section</button>
+                                    <strong>:</strong>if the lower fields are properly filled out, verify that your are using the most Current avaiable modle run, and click the Get X-Section button. The briefing tool will open a AFWEBS METEOGRAM
+                                </p>
+                                <p>
+                                    <button class="btn-primary btn-sm">getWX</button>
+                                    <strong>:</strong> the getWX button will populate TABS on the right with met data corisponding to the icao in that buttons row
+                                </p>
+                                <p>
+                                    <button class="btn-primary btn-sm">Open Windows</button>
+                                    <strong>BLUF:</strong> many aspects of the open Windows button are still in work. The Open Windows button utlizes the "OBS & TAFS" and "MODEL" tab to pull various products specifc to the station in its row. One known issue is opening more than one window at a time will flag the popup blocker.
+                                </p>
+                                <p><strong>The MOA and AR Track TABS</strong> The intent is to store in the file directory a database of all of our AOR's MOA's and AR Tracks. Minimum requirements for the database are the MOA/ AR Track name, entry lat/lon and exit lat/lon. once completed the lat/lon's will be populated in the lower field and crosssection can be generated.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
